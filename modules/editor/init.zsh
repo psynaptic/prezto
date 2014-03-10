@@ -77,6 +77,11 @@ zle -N edit-command-line
 # Functions
 #
 
+autoload up-line-or-beginning-search
+autoload down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
 # Exposes information about the Zsh Line Editor via the $editor_info associative
 # array.
 function editor-info {
@@ -303,6 +308,10 @@ for keymap in 'emacs' 'viins'; do
 
   # Insert 'sudo ' at the beginning of the line.
   bindkey -M "$keymap" "$key_info[Control]X$key_info[Control]S" prepend-sudo
+
+  # History search for commands starting with the current buffer.
+  bindkey -M "$keymap" "$key_info[Up]" up-line-or-beginning-search
+  bindkey -M "$keymap" "$key_info[Down]" down-line-or-beginning-search
 done
 
 # Do not expand .... to ../.. during incremental search.
