@@ -15,4 +15,3 @@ export ZSH=/bin/zsh
 # Customize to your needs...
 source ${ZDOTDIR:-$HOME}/.agnostic_profile
 source ${ZDOTDIR:-$HOME}/.zsh_functions
-
